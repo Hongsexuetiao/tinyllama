@@ -1,0 +1,47 @@
+HWABR-Q:/data/local/tmp $ ./build_android/test/perf_test/bench_matmul
+2025-04-25T23:30:28+08:00
+Running ./build_android/test/perf_test/bench_matmul
+Run on (8 X 1305.6 MHz CPU s)
+-------------------------------------------------------------------------------------------------------------------------------
+Benchmark                                                                                     Time             CPU   Iterations
+-------------------------------------------------------------------------------------------------------------------------------
+matmul_naive_fp16/16                                                                       3770 ns         3750 ns       186517
+matmul_naive_fp16/32                                                                      32368 ns        32199 ns        21743
+matmul_naive_fp16/64                                                                     260539 ns       259200 ns         2701
+matmul_naive_fp16/128                                                                   2303938 ns      2292397 ns          305
+matmul_naive_fp16/256                                                                  42255365 ns     42053366 ns           17
+matmul_naive_fp16/512                                                                 336679322 ns    335314761 ns            2
+matmul_naive_fp16/1024                                                               2808719270 ns   2795282255 ns            1
+matmul_vector_transpose_simd_fp16/1/4096/1024                                            460646 ns       457565 ns         1556
+matmul_vector_transpose_simd_fp16/1/4096/2048                                            947582 ns       940968 ns          750
+matmul_vector_transpose_simd_fp16/1/4096/4096                                           1856812 ns      1843897 ns          375
+matmul_vector_transpose_simd_fp16/1/4096/11008                                          5064752 ns      5040241 ns          137
+matmul_vector_transpose_simd_fp16/1/4096/32000                                         14703027 ns     14638590 ns           48
+matmul_vector_transpose_simd_fp16/1/4096/128                                              40282 ns        40112 ns        17413
+matmul_vector_transpose_simd_fp16/1/4096/256                                              80457 ns        80113 ns         8523
+matmul_vector_transpose_simd_fp16/1/4096/512                                             193025 ns       191994 ns         3587
+matmul_vector_transpose_simd_fp16/1/4096/1024                                            444210 ns       440919 ns         1566
+matmul_vector_transpose_simd_fp16/1/4096/2048                                            927925 ns       921314 ns          723
+matmul_vector_transpose_simd_fp16/1/4096/4096                                           1918775 ns      1905309 ns          374
+matmul_vector_transpose_simd_fp16/1/4096/8192                                           3702755 ns      3685461 ns          177
+matmul_vector_transpose_simd_fp16/1/4096/16384                                          7440982 ns      7406800 ns           92
+matmul_vector_transpose_simd_fp16/1/4096/32768                                         14445445 ns     14381975 ns           46
+parallel_matmul_vector_transpose_simd_fp16/1/4096/1536/min_warmup_time:10.000            651627 ns       235381 ns         2842
+parallel_matmul_vector_transpose_simd_fp16/1/1536/11008/min_warmup_time:10.000          1542692 ns       253194 ns         2791
+parallel_matmul_vector_transpose_simd_fp16/1/4096/4096/min_warmup_time:10.000           1589417 ns       260589 ns         2647
+parallel_matmul_vector_transpose_simd_fp16/1/4096/32000/min_warmup_time:10.000         11170282 ns       391187 ns         1000
+parallel_batch_matmul_vector_transpose_simd_fp16/32/1/12/128/min_warmup_time:10.000       76448 ns        53466 ns        12431
+parallel_batch_matmul_vector_transpose_simd_fp16/32/1/16/128/min_warmup_time:10.000       75119 ns        53827 ns        12993
+parallel_batch_matmul_vector_transpose_simd_fp16/32/1/128/128/min_warmup_time:10.000     186702 ns       150292 ns        12567
+sparse_matmul_axpy_naive_fp16/1/4096/4096                                               3625302 ns      3597208 ns          194
+sparse_matmul_axpy_naive_fp16/1/11008/4096                                             11149776 ns     11083208 ns           63
+sparse_matmul_axpy_simd_fp16/1/4096/4096                                                1899110 ns      1884513 ns          368
+sparse_matmul_axpy_simd_fp16/1/11008/4096                                               5159133 ns      5130205 ns          131
+parallel_sparse_matmul_axpy_simd_fp16/1/4096/4096                                       1656798 ns       255395 ns         2715
+parallel_sparse_matmul_axpy_simd_fp16/1/11008/4096                                      4175001 ns       336211 ns         1000
+sparse_matmul_trans_naive_fp16/1/4096/4096                                             20113875 ns     20041207 ns           35
+sparse_matmul_trans_naive_fp16/1/11008/4096                                            54272212 ns     54073165 ns           13
+sparse_matmul_trans_simd_fp16/1/4096/4096                                               1826872 ns      1814311 ns          369
+sparse_matmul_trans_simd_fp16/1/11008/4096                                              5168478 ns      5142329 ns          130
+parallel_sparse_matmul_trans_simd_fp16/1/4096/4096                                      1625043 ns       250544 ns         2818
+parallel_sparse_matmul_trans_simd_fp16/1/11008/4096                                     4095351 ns       308924 ns         1000
