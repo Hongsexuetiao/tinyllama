@@ -182,47 +182,9 @@ ln -s /path/to/ReluLLaMA-7B-PowerInfer-GGUF/llama-7b-relu.powerinfer.gguf test/d
 ./build_linux/test/perf_test/bench_matmul
 ```
 
-### 3、框架设计
 
-llm-micro架构示意图：
 
-![image-20240926222537835](doc/images//llm-micro-arch.png)
 
-- 模型组件侧：参考Transformers库设计，采用解耦的Model/Tokenizers/Samplers三种核心部件，构成llm推理pipeline；
-- 推理运行时层：提供内存、权重offload、线程任务等管理功能；
-- 算子接口层：提供统一的算子API，屏蔽硬件差异，降低后续多硬件协同推理的开发成本；
-- 算子库：包括CPU、GPU、NPU算子，提供高性能算子实现。
-
-### 4、Todo List
-
-#### 4.1 模型量化
-
-- [ ] Q4量化推理：支持4bit量化，甚至更低比特
-- [ ] convert脚本：当前复用llama.cpp转换脚本，需重新实现一套，包括gguf模型格式
-- [ ] [T-MAC](https://github.com/microsoft/T-MAC)：使用查表替代浮点乘法计算
-
-#### 4.2 模型泛化
-
-- [ ] 支持qwen
-- [ ] 支持mistral（MoE）
-- [ ] 支持mamba
-
-#### 4.3 稀疏加速
-
-- [x] PowerInfer动态稀疏
-- [ ] [MInference-1.0：利用attn三种基础稀疏模式的动态组合来加速
-
-#### 4.4 投机推理
-
-- [ ] [LookAhead](https://arxiv.org/abs/2312.12728)：基于Trie-tree查询候选词
-- [ ] [LookAhead Decoding](https://github.com/hao-ai-lab/LookaheadDecoding)：基于雅克比矩阵并行解码
-- [ ] 稀疏和投机技术的叠加
-
-#### 4.5 KVCache压缩
-
-- [x] SnapKV：已在探索中
-- [ ] [MiniCache](https://arxiv.org/abs/2405.14366)
-- [ ] MLA：改造Attention降低内存
 
 #### 4.6 权重Offload/Swap
 
